@@ -43,6 +43,8 @@ ENV COMPOSER_HOME /composer
 COPY php-cli.ini /usr/local/etc/php/
 COPY --from=build /satis /satis/
 
+RUN git config --global --add safe.directory '*'
+
 WORKDIR /build
 
 ENTRYPOINT ["/satis/bin/docker-entrypoint.sh"]
